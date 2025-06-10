@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cruise Slideshow</title>
+  <script>
+    const slideshows = [
+      "Southampton Sailaway/index.html",
+      "First Seaday/index.html",
+      "Stavanger/index.html",
+      "Ålesund/index.html",
+      "Olden/index.html",
+      "Haugesund/index.html"
+    ];
+
+    let current = parseInt(localStorage.getItem("currentSlideshow") || "0");
+
+    function goToNextSlideshow() {
+      if (current < slideshows.length) {
+        localStorage.setItem("currentSlideshow", current + 1);
+        window.location.href = slideshows[current];
+      } else {
+        localStorage.setItem("currentSlideshow", 0);
+        document.body.innerHTML = "<h1>All done!</h1><p>Restarting slideshow in 10 seconds...</p>";
+        setTimeout(() => window.location.reload(), 10000);
+      }
+    }
+
+    window.onload = goToNextSlideshow;
+  </script>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 20%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loading Cruise Slideshow...</h1>
+</body>
+</html>
