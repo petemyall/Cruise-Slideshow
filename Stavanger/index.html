@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stavanger Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100vh;
+      position: absolute;
+      display: none;
+      transition: opacity 1s;
+    }
+    img.show {
+      display: block;
+    }
+    .label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 5px 10px;
+      font-family: sans-serif;
+      font-size: 1.2em;
+      z-index: 10;
+    }
+    button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px;
+      font-size: 1em;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div class="label">Stavanger</div>
+  <button onclick="openFullscreen()">⛶ Full Screen</button>
+  <img src="Stavanger (1).jpg" class="show">
+  <img src="Stavanger (2).jpg">
+  <img src="Stavanger (3).jpg">
+  <img src="Stavanger (4).jpg">
+  <img src="Stavanger (5).jpg">
+  <img src="Stavanger (6).jpg">
+  <img src="Stavanger (7).jpg">
+  <img src="Stavanger (8).jpg">
+  <img src="Stavanger (9).jpg">
+  <img src="Stavanger (10).jpg">
+  <img src="Stavanger (11).jpg">
+  <img src="Stavanger (12).jpg">
+  <img src="Stavanger (13).jpg">
+  <img src="Stavanger (14).jpg">
+  <img src="Stavanger (15).jpg">
+  <img src="Stavanger (16).jpg">
+  <img src="Stavanger (17).jpg">
+  <img src="Stavanger (18).jpg">
+  <img src="Stavanger (19).jpg">
+  <img src="Stavanger (20).jpg">
+  <img src="Stavanger (21).jpg">
+  <img src="Stavanger (22).jpg">
+  <img src="Stavanger (23).jpg">
 
+  <audio autoplay loop>
+    <source src="../12.Sailing (Remastered 2023).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    const slides = document.querySelectorAll("img");
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove("show");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("show");
+    }, 10000);
+
+    setTimeout(() => {
+      window.location.href = "../index.html";
+    }, 60000);
+
+    function openFullscreen() {
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
