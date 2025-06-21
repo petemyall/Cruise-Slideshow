@@ -47,39 +47,46 @@
 <body>
   <div class="label">Southampton Sailaway</div>
   <button onclick="openFullscreen()">⛶ Full Screen</button>
-  <img src="Southampton Sailaway (1).jpg" class="show">
-  <img src="Southampton Sailaway (2).jpg">
-  <img src="Southampton Sailaway (3).jpg">
-  <img src="Southampton Sailaway (4).jpg">
-  <img src="Southampton Sailaway (5).jpg">
-  <img src="Southampton Sailaway (6).jpg">
-  <img src="Southampton Sailaway (7).jpg">
-  <img src="Southampton Sailaway (8).jpg">
-  <img src="Southampton Sailaway (9).jpg">
-  <img src="Southampton Sailaway (10).jpg">
-  <img src="Southampton Sailaway (11).jpg">
-  <img src="Southampton Sailaway (12).jpg">
-  <img src="Southampton Sailaway (13).jpg">
-  <img src="Southampton Sailaway (14).jpg">
-  <img src="Southampton Sailaway (15).jpg">
-  <img src="Southampton Sailaway (16).jpg">
-  <img src="Southampton Sailaway (17).jpg">
-  <img src="Southampton Sailaway (18).jpg">
-  <img src="Southampton Sailaway (19).jpg">
 
+  <!-- Image Slides -->
+  <img src="Southampton Sailaway (1).jpg" class="show" alt="Slide 1">
+  <img src="Southampton Sailaway (2).jpg" alt="Slide 2">
+  <img src="Southampton Sailaway (3).jpg" alt="Slide 3">
+  <img src="Southampton Sailaway (4).jpg" alt="Slide 4">
+  <img src="Southampton Sailaway (5).jpg" alt="Slide 5">
+  <img src="Southampton Sailaway (6).jpg" alt="Slide 6">
+  <img src="Southampton Sailaway (7).jpg" alt="Slide 7">
+  <img src="Southampton Sailaway (8).jpg" alt="Slide 8">
+  <img src="Southampton Sailaway (9).jpg" alt="Slide 9">
+  <img src="Southampton Sailaway (10).jpg" alt="Slide 10">
+  <img src="Southampton Sailaway (11).jpg" alt="Slide 11">
+  <img src="Southampton Sailaway (12).jpg" alt="Slide 12">
+  <img src="Southampton Sailaway (13).jpg" alt="Slide 13">
+  <img src="Southampton Sailaway (14).jpg" alt="Slide 14">
+  <img src="Southampton Sailaway (15).jpg" alt="Slide 15">
+  <img src="Southampton Sailaway (16).jpg" alt="Slide 16">
+  <img src="Southampton Sailaway (17).jpg" alt="Slide 17">
+  <img src="Southampton Sailaway (18).jpg" alt="Slide 18">
+  <img src="Southampton Sailaway (19).jpg" alt="Slide 19">
+
+  <!-- Background Music -->
   <audio autoplay loop>
     <source src="../12.Sailing (Remastered 2023).mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Slideshow Logic -->
   <script>
     const slides = document.querySelectorAll("img");
     let current = 0;
+
     setInterval(() => {
       slides[current].classList.remove("show");
       current = (current + 1) % slides.length;
       slides[current].classList.add("show");
-    }, 10000);
+    }, 10000); // Change image every 10 seconds
 
+    // Return to main index after 1 minute
     setTimeout(() => {
       window.location.href = "../index.html";
     }, 60000);
@@ -95,5 +102,12 @@
       }
     }
   </script>
+
+  <!-- JavaScript Fallback -->
+  <noscript>
+    <div style="color:white; text-align:center; font-family:sans-serif; margin-top:2rem;">
+      This slideshow requires JavaScript to run.
+    </div>
+  </noscript>
 </body>
 </html>
