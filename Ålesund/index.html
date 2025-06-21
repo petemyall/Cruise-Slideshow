@@ -47,19 +47,25 @@
 <body>
   <div class="label">Ålesund</div>
   <button onclick="openFullscreen()">⛶ Full Screen</button>
-  <img src="Ålesund (1).jpg" class="show">
-  <img src="Ålesund (2).jpg">
-  <img src="Ålesund (3).jpg">
-  <img src="Ålesund (4).jpg">
-  <img src="Ålesund (5).jpg">
 
+  <!-- Slideshow Images -->
+  <img src="Ålesund (1).jpg" class="show" alt="Ålesund Slide 1">
+  <img src="Ålesund (2).jpg" alt="Ålesund Slide 2">
+  <img src="Ålesund (3).jpg" alt="Ålesund Slide 3">
+  <img src="Ålesund (4).jpg" alt="Ålesund Slide 4">
+  <img src="Ålesund (5).jpg" alt="Ålesund Slide 5">
+
+  <!-- Background Music -->
   <audio autoplay loop>
     <source src="../12.Sailing (Remastered 2023).mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Slideshow Script -->
   <script>
     const slides = document.querySelectorAll("img");
     let current = 0;
+
     setInterval(() => {
       slides[current].classList.remove("show");
       current = (current + 1) % slides.length;
@@ -81,5 +87,12 @@
       }
     }
   </script>
+
+  <!-- Fallback for JavaScript-disabled browsers -->
+  <noscript>
+    <div style="color:white; text-align:center; font-family:sans-serif; margin-top:2rem;">
+      This slideshow requires JavaScript to run.
+    </div>
+  </noscript>
 </body>
 </html>
