@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>First Seaday Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100vh;
+      position: absolute;
+      display: none;
+      transition: opacity 1s;
+    }
+    img.show {
+      display: block;
+    }
+    .label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 5px 10px;
+      font-family: sans-serif;
+      font-size: 1.2em;
+      z-index: 10;
+    }
+    button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px;
+      font-size: 1em;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div class="label">First Seaday</div>
+  <button onclick="openFullscreen()">⛶ Full Screen</button>
+
+  <!-- Slideshow Images -->
+  <img src="First Seaday (1).jpg" class="show" alt="First Seaday Slide 1">
+  <img src="First Seaday (2).jpg" alt="First Seaday Slide 2">
+  <img src="First Seaday (3).jpg" alt="First Seaday Slide 3">
+  <img src="First Seaday (4).jpg" alt="First Seaday Slide 4">
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="../12.Sailing (Remastered 2023).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Slideshow Script -->
+  <script>
+    const slides = document.querySelectorAll("img");
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove("show");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("show");
+    }, 10000);
+
+    setTimeout(() => {
+      window.location.href = "../index.html";
+    }, 60000);
+
+    function openFullscreen() {
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
+  </script>
+
+  <!-- Fallback for JavaScript-disabled browsers -->
+  <noscript>
+    <div style="color:white; text-align:center; font-family:sans-serif; margin-top:2rem;">
+      This slideshow requires JavaScript to run.
+    </div>
+  </noscript>
+</body>
+</html>
